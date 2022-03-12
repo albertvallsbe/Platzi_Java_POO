@@ -3,17 +3,21 @@ public class Doctor {
     /**
      * Atributos
      */
-    int id;
+    static int id = 0;// autoincrement
     String name;
+    String email;
     String speciality;
 
     Doctor() {
         System.out.println("Construyendo el objeto doctor");
+        Doctor.id++;
     }
 
-    Doctor(String name) {
-        System.out.println("El nombre del doctor: " + name);
+    Doctor(String name, String speciality) {
+        Doctor.id++;
         this.name = name;
+        this.speciality = speciality;
+        System.out.println("El nom del doctor: " + name + ", Especialitat: "+ speciality);
     }
 
     /**
@@ -21,5 +25,9 @@ public class Doctor {
      */
     public void showName() {
         System.out.println(name);
+    }
+
+    public void showId(){
+        System.out.println("ID Doctor: " + Doctor.id);
     }
 }
