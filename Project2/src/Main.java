@@ -22,7 +22,7 @@ public class Main {
         myDoctor.addAvailableAppointment(new Date(), "18h");
 
        // System.out.println(myDoctor.getAvailableAppointments());
-         //  showMenu();
+         showMenu();
 
         for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()) {
             System.out.println(aA.getDate() + " " + aA.getTime());
