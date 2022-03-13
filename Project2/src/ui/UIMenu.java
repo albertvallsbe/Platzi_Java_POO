@@ -15,8 +15,8 @@ public class UIMenu {
             System.out.println("2. Patient");
             System.out.println("0. Salir");
 
-            Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
+            Scanner in = new Scanner(System.in);
+            response = Integer.valueOf(in.nextLine());
 
             switch (response) {
                 case 1:
@@ -45,8 +45,8 @@ public class UIMenu {
             System.out.println("2. My appointments");
             System.out.println("0. Return");
 
-            Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
+            Scanner in = new Scanner(System.in);
+            response = Integer.valueOf(in.nextLine());
 
             switch (response) {
                 case 1:

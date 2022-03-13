@@ -1,26 +1,34 @@
+
+
+import java.util.Date;
+
 import static ui.UIMenu.*;
+
+
+
 
 public class Main {
     public static void main(String[] args) {
         
+
+        Doctor myDoctor = new Doctor("Anna", "pediatria");
+
+        myDoctor.addAvailableAppointment(new Date(), "4pm");
+        myDoctor.addAvailableAppointment(new Date(), "10am");
+        myDoctor.addAvailableAppointment(new Date(), "1pm");
         
-        /**
-         * Instanciem, creem l'objecte amb el mètode constructor
-         */
+        myDoctor.addAvailableAppointment(new Date(), "16h");
+        myDoctor.addAvailableAppointment(new Date(), "17h");
+        myDoctor.addAvailableAppointment(new Date(), "18h");
 
-        Doctor myDoctor = new Doctor();
+       // System.out.println(myDoctor.getAvailableAppointments());
+         //  showMenu();
 
-        myDoctor.name = "Anna";
-        myDoctor.showName();
-        myDoctor.showId();
-        Doctor myDoctorTitu = new Doctor("Albert", "dentist");
-        myDoctorTitu.showName();
-        myDoctorTitu.showId();
+        for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()) {
+            System.out.println(aA.getDate() + " " + aA.getTime());
+        }
 
-        
-
-        showMenu();
-
+      
     }
 
 }
