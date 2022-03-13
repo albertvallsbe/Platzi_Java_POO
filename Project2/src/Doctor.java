@@ -49,7 +49,6 @@ public class Doctor {
         private Date date;
         private String time;
 
-
         public AvailableAppointment(Date date, String time) {
             this.date = date;
             this.time = time;
@@ -78,5 +77,6 @@ public class Doctor {
         public void setTime(String time) {
             this.time = time;
         }
+
     }
 }
