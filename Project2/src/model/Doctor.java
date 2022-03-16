@@ -9,12 +9,13 @@ public class Doctor extends User {
      * Atributos
      */
     private String speciality;
-    
+
     public Doctor(String name, String email) {
         super(name, email);
-        System.out.println("El nombre del Doctor asignado es: " + name);
         this.speciality = speciality;
-    
+        System.out.println("El nombre del Doctor asignado es: " + name +
+                "\n El nombre de la especialidad es: " + speciality);
+
     }
 
     /**
@@ -68,7 +69,7 @@ public class Doctor extends User {
 
         public void setDate(Date date) {
             this.date = date;
-            
+
         }
 
         public String getTime() {
@@ -82,7 +83,7 @@ public class Doctor extends User {
         @Override
         public String toString() {
             // TODO Auto-generated method stub
-            return "Available Apointments \n Date: " + date + "\n Time: "+ time;
+            return "Available Apointments \n Date: " + date + "\n Time: " + time;
         }
 
     }
@@ -93,5 +94,4 @@ public class Doctor extends User {
         System.out.println("Departament: Cancèr");
     }
 
-   
 }
