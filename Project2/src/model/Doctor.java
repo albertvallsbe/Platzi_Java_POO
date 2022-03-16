@@ -1,3 +1,4 @@
+package model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,7 +10,7 @@ public class Doctor extends User {
      */
     private String speciality;
     
-    Doctor(String name, String email) {
+    public Doctor(String name, String email) {
         super(name, email);
         System.out.println("El nombre del Doctor asignado es: " + name);
         this.speciality = speciality;
@@ -38,6 +39,11 @@ public class Doctor extends User {
         return availableAppointments;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
+    }
+
     public static class AvailableAppointment {
         private int id;
         private Date date;
@@ -62,6 +68,7 @@ public class Doctor extends User {
 
         public void setDate(Date date) {
             this.date = date;
+            
         }
 
         public String getTime() {
@@ -72,5 +79,19 @@ public class Doctor extends User {
             this.time = time;
         }
 
+        @Override
+        public String toString() {
+            // TODO Auto-generated method stub
+            return "Available Apointments \n Date: " + date + "\n Time: "+ time;
+        }
+
     }
+
+    @Override
+    public void showDataUser() {
+        System.out.println("Hospital: Creu Roja");
+        System.out.println("Departament: Cancèr");
+    }
+
+   
 }

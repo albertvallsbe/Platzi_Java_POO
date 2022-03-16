@@ -1,4 +1,5 @@
-public class User {
+package model;
+public abstract class User {
     private int id;
     private String name;
     private String email;
@@ -56,5 +57,14 @@ public class User {
         }
 
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "User: " + name + ", Email: " + email + "\n Address: " + address + ", Phone: " + phoneNumber;
+    }
+
+    public abstract void showDataUser();
+    
 
 }
