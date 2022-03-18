@@ -8,6 +8,13 @@ public class AppointmentDoctor implements ISchedulable{
     private Doctor doctor;
     private Date date;
     private String time;
+
+
+    
+    public AppointmentDoctor(Patient patient, Doctor doctor) {
+        this.patient = patient;
+        this.doctor = doctor;
+    }
     public int getId() {
         return id;
     }
@@ -36,11 +43,12 @@ public class AppointmentDoctor implements ISchedulable{
         return time;
     }
     public void setTime(String time) {
-        this.time = time;
+        this.time = time + "hrs.";
     }
     @Override
     public void schedule(Date date, String time) {
-        // TODO Auto-generated method stub
+        this.date = date;
+        this.time = time;
         
     }
 

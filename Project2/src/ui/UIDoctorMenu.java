@@ -25,8 +25,11 @@ public class UIDoctorMenu {
 
             switch (response) {
                 case 1:
+                    showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
+                    showDoctorAvailableAppointments();
+;
                     break;
                 case 0:
                     UIMenu.showMenu();
@@ -56,17 +59,60 @@ public class UIDoctorMenu {
             if (response > 0 && response < 4) {
 
                 int monthSelected = response;
-                System.out.println(monthSelected + " . " + UIMenu.MONTHS_LIST[monthSelected]);
+                System.out.println(monthSelected + " . " + UIMenu.MONTHS_LIST[monthSelected-1]);
 
                 System.out.println("Insert the date available: [dd/mm/yyyy]");
                 String date = sc.nextLine();
 
                 System.out.println("Your date is: " + date + "\n1. Correct \n 2. Change Date");
+                int responseDate = Integer.valueOf(sc.nextLine());
+                if (responseDate == 2) continue;
+
+                int responseTime = 0;
+                String time = "";
+                do {
+                    System.out.println("Insert the time available for date: "+date+"[16:00]");
+                    time  = sc.nextLine();
+                    System.out.println("Your time is: " + time + "\n1. Correct   \n2. Change Date");
+                    responseTime =  Integer.valueOf(sc.nextLine());
+
+                }while (responseTime    == 2);
+
+                UIMenu.doctorLogged.addAvailableAppointment(date, time);
+                checkDoctorAvailableAppointments(UIMenu.doctorLogged);
 
             } else if (response == 0) {
                 showDoctorMenu();
             }
 
         } while (response != 0);
+    }
+
+    private static void checkDoctorAvailableAppointments(Doctor doctor){
+        if(doctor.getAvailableAppointments().size()>0 && !doctorsAvailableAppointments.contains(doctor)){
+            doctorsAvailableAppointments.add(doctor);
+        }
+    }
+
+    private static void showDoctorAvailableAppointments() {
+        int response =0;
+        do{
+            System.out.println("Available Appointments");
+
+            if(UIMenu.doctorLogged.getAvailableAppointments().size() ==0 ){
+                System.out.println("Don't have Appointments");
+                break;
+            }
+
+            for (int i = 0; i < UIMenu.doctorLogged.getAvailableAppointments().size(); i++) {
+                int j = i + 1;
+                System.out.println(j+ ". "+
+                    "Date: " + UIMenu.doctorLogged.getAvailableAppointments().get(i).getDate() +
+                    "Time: " + UIMenu.doctorLogged.getAvailableAppointments().get(i).getTime());
+                    
+                
+            }
+            System.out.println("0. Return");
+        }while (response !=0);
     }
 }
