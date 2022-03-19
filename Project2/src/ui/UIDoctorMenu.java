@@ -97,10 +97,10 @@ public class UIDoctorMenu {
     private static void showDoctorAvailableAppointments() {
         int response =0;
         do{
-            System.out.println("Available Appointments");
+            System.out.println(" Available Appointments");
 
             if(UIMenu.doctorLogged.getAvailableAppointments().size() ==0 ){
-                System.out.println("Don't have Appointments");
+                System.out.println(" Don't have Appointments");
                 break;
             }
 
